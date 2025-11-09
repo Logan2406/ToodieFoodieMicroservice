@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.example</groupId>
+  <artifactId>spring-microservices-monorepo</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+
+  <!-- Replace with the Spring Boot version you used from start.spring.io if different -->
+  <properties>
+    <spring.boot.version>3.5.7</spring.boot.version>
+    <java.version>17</java.version>
+  </properties>
+
+
+<modules>
+  <module>services/user-service</module>
+  <module>services/delivery-service</module>
+  <module>services/restaurant-service</module>
+  <module>services/admin-service</module>
+  <module>common-libs/logging-lib</module>
+</modules>
+
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring.boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>${spring.boot.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
+
