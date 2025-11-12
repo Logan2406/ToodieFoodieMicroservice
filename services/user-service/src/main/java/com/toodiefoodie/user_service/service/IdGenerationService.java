@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@Transactional
 public class IdGenerationService {
 
     final UserSequenceRepository userSequenceRepository;
@@ -17,6 +16,7 @@ public class IdGenerationService {
         this.userSequenceRepository = userSequenceRepository;
     }
 
+    @Transactional
     public Long generateId(String key)
     {
         UserServiceSequence us = userSequenceRepository.findByKey(key);

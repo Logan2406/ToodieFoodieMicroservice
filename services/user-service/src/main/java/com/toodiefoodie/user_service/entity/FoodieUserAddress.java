@@ -24,6 +24,8 @@ public class FoodieUserAddress {
 
     private String country;
 
+    private String pinCode;
+
     private String state;
 
     private boolean isDefault;
